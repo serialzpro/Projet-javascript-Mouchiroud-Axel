@@ -20,6 +20,7 @@
  * http://sailsjs.org/#!/documentation/concepts/Routes/RouteTargetSyntax.html
  */
 
+module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
@@ -30,28 +31,26 @@
   * `assets` directory)                                                      *
   *                                                                          *
   ***************************************************************************/
-module.exports.routes = {
+
   '/': {
     view: 'homepage'
   },
+   'get /login': {
+          view: 'login'
+     },
 
-  'get /login': {
-       view: 'login'
-  },
+     'post /login': 'AuthController.login',
 
-  'post /login': 'AuthController.login',
+     '/logout': 'AuthController.logout',
 
-  '/logout': 'AuthController.logout',
+     'get /signup': {
+       view: 'signup'
+     },
+    'get /monCompte': {
+     controller : 'UserController',
+     action : 'moncompte'
+    }
 
-  'get /signup': {
-    view: 'signup'
-  },
-
-  'get /homepage': {
-    controller: 'UserController',
-    action : 'moncompte'
-  }
-};
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -62,4 +61,4 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-
+};

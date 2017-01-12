@@ -5,10 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 var passport = require('passport');
-
 module.exports = {
-
-    _config: {
+_config: {
         actions: false,
         shortcuts: false,
         rest: false
@@ -25,17 +23,17 @@ module.exports = {
             }
             req.logIn(user, function(err) {
                 if (err) res.send(err);
-                return res.send({
-                    message: info.message,
-                    user: user
-                });
-            });
-                    })(req, res);
-                },
+                res.redirect('/monCompte');
 
-                logout: function(req, res) {
-                    req.logout();
-                    res.redirect('/');
-                }
-            };
+            });
+
+        })(req, res);
+    },
+
+    logout: function(req, res) {
+        req.logout();
+        res.redirect('/');
+    }
+
+};
 
