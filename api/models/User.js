@@ -23,9 +23,9 @@ module.exports = {
          prenom: {
             type:'string'
           },
-         addresse: {
-                  collection: 'address',
-                  via: 'user'
+         adresse: {
+                  collection: 'adresse',
+                  via: 'owner'
               },
          avatarUrl: {
                 type: 'string',

@@ -9,7 +9,7 @@
 module.exports = {
   perso: function (req, res)
    {
-     return res.view('perso');
+     return res.view('monCompte');
    },
 
    moncompte: function(req, res) {
@@ -21,27 +21,25 @@ module.exports = {
      };
 
      User.findOne(where)
-     .populate('addresse')
+     .populate('adresse')
      .exec(function(error, user) {
            console.log(user);
            data.user = user;
-           return res.view('perso', data);
+           return res.view('monCompte', data);
      })
    },
 
    upload: function  (req, res) {
-       req.file('avatar').upload({
-         dirname: path.resolve(sails.config.appPath, 'assets/images/')
-       },function (err, uploadedFiles) {
-         if (err) return res.negotiate(err);
-         path.basename(uploadedFiles[0].fd);
-         req.user
-         return res.json({
-                 message: uploadedFiles.length + ' file(s) uploaded successfully!',
-                 files: uploadedFiles,
-               });
-       });
-    }
+    req.file('avatar').upload({
+      dirname: require(paths).resolve(sails.config.appPath, 'assets/images')
+    },function (err, uploadedFiles) {
+      if (err) return res.negotiate(err);
+
+      return res.json({
+        message: uploadedFiles.length + ' file(s) uploaded successfully!'
+      });
+    });
+}
 
 };
 
