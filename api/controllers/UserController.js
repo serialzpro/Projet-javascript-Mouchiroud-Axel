@@ -27,19 +27,9 @@ module.exports = {
            data.user = user;
            return res.view('monCompte', data);
      })
-   },
+   }
 
-   upload: function  (req, res) {
-    req.file('avatar').upload({
-      dirname: require(paths).resolve(sails.config.appPath, 'assets/images')
-    },function (err, uploadedFiles) {
-      if (err) return res.negotiate(err);
 
-      return res.json({
-        message: uploadedFiles.length + ' file(s) uploaded successfully!'
-      });
-    });
-}
 
 };
 

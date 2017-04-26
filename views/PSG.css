@@ -1,0 +1,23 @@
+h2{
+	color :red;
+	font-family:Avantgarde, sans-serif;
+}
+
+body {
+  background-color: yellow;
+}
+
+h1.classe1 {
+  color: white;
+  background-color: green;
+}
+
+#demo {
+ color: black;
+}
+
+a.blanc {
+  color: red;
+}
+
+
