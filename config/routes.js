@@ -49,6 +49,12 @@ module.exports.routes = {
     'get /monCompte': {
      controller : 'UserController',
      action : 'moncompte'
+
+    },
+
+    'post /monCompte/test':{
+      controller: 'UserController',
+      action:'test'
     },
 
     'get /participants': {

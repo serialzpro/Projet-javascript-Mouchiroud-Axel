@@ -27,8 +27,13 @@ module.exports = {
            data.user = user;
            return res.view('monCompte', data);
      })
-   }
+   },
 
+   test: function(req, res){
+     console.log("ggg");
+     return res.json({variable1: 'gg', variable2: 'opgg'});
+
+   }
 
 
 };
